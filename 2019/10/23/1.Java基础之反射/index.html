@@ -16,7 +16,7 @@
 <meta property="og:description" content="[toc] 反射机制反射的实现过程：Java语言编译之后会生成一个.class文件，反射就是通过字节码文件找到某一个类、类中的方法以及属性等。反射的实现主要借助以下的几个部分。 类是用来描述一组对象，反射机制可以认为是用来描述一组类。 ​    Class：      用来描述类本身。 ​    Package：    用来描述类所属的包。 ​    Field：      用来描述类中的属性。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571819891013.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821336267.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;Blog&#x2F;hexo&#x2F;source&#x2F;assets&#x2F;BlogImg&#x2F;1.Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8F%8D%E5%B0%84&#x2F;1571821336267.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821351890.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821360804.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821381269.png">
@@ -27,7 +27,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821432086.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821441401.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571821448214.png">
-<meta property="og:updated_time" content="2019-10-23T10:23:50.064Z">
+<meta property="og:updated_time" content="2019-10-23T10:55:56.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1&#x2F;1571819891013.png">
   
@@ -221,7 +221,7 @@
 <h2 id="4-Filed中的常用方法"><a href="#4-Filed中的常用方法" class="headerlink" title="4.Filed中的常用方法"></a>4.Filed中的常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">（1）int m = field.getModifiers();</span><br><span class="line">获取属性的修饰符</span><br><span class="line">（2）Class fc = field.getType();</span><br><span class="line">获取属性的类型。</span><br><span class="line">（3）String name=field.getName();</span><br><span class="line">获取属性的名称。</span><br><span class="line">（4）field.set(对象,”赋值”)；</span><br><span class="line">给对象中的nameField属性赋值。相当于对象.nameField=赋值；对象可以通过Person p =(Person)clazz.newInstance();的方法来得到。</span><br><span class="line">（5）field.get(对象)；</span><br><span class="line">取出对象中nameField属性的值。</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="5-使用反射机制修改类中私有属性的值（String）"><a href="#5-使用反射机制修改类中私有属性的值（String）" class="headerlink" title="5. 使用反射机制修改类中私有属性的值（String）"></a>5. 使用反射机制修改类中私有属性的值（String）</h2><p><img src="/2019/10/23/1/1571821336267.png" alt="1571821336267"></p>
+<h2 id="5-使用反射机制修改类中私有属性的值（String）"><a href="#5-使用反射机制修改类中私有属性的值（String）" class="headerlink" title="5. 使用反射机制修改类中私有属性的值（String）"></a>5. 使用反射机制修改类中私有属性的值（String）</h2><p><img src="/2019/10/23/1/Blog/hexo/source/assets/BlogImg/1.Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8F%8D%E5%B0%84/1571821336267.png" alt="1571821336267"></p>
 <p><img src="/2019/10/23/1/1571821351890.png" alt="1571821351890"></p>
 <p><img src="/2019/10/23/1/1571821360804.png" alt="1571821360804"></p>
 <hr>
