@@ -9,6 +9,7 @@
   <title>1.Java基础之反射 | 齐博文的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="[toc] 反射机制反射的实现过程：Java语言编译之后会生成一个.class文件，反射就是通过字节码文件找到某一个类、类中的方法以及属性等。反射的实现主要借助以下的几个部分。 类是用来描述一组对象，反射机制可以认为是用来描述一组类。 ​    Class：      用来描述类本身。 ​    Package：    用来描述类所属的包。 ​    Field：      用来描述类中的属性。">
+<meta name="keywords" content="Java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1.Java基础之反射">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1-Java&#x2F;index.html">
@@ -27,7 +28,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1-Java&#x2F;1571821432086.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1-Java&#x2F;1571821441401.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1-Java&#x2F;1571821448214.png">
-<meta property="og:updated_time" content="2019-10-23T12:03:45.652Z">
+<meta property="og:updated_time" content="2019-10-23T13:09:35.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;1-Java&#x2F;1571819891013.png">
   
@@ -79,11 +80,7 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
             
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -269,6 +266,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -345,6 +353,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#反射机制"><span class="toc-number">1.</span> <span class="toc-text">反射机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-反射的作用"><span class="toc-number">1.1.</span> <span class="toc-text">1.反射的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何获取class"><span class="toc-number">1.2.</span> <span class="toc-text">2.如何获取class</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三种方式："><span class="toc-number">1.2.1.</span> <span class="toc-text">三种方式：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-class中的常用方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.class中的常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）获取类的基本信息"><span class="toc-number">1.3.1.</span> <span class="toc-text">（1）获取类的基本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）获取类中属性的方法"><span class="toc-number">1.3.2.</span> <span class="toc-text">（2）获取类中属性的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-获取类中函数的方法"><span class="toc-number">1.3.3.</span> <span class="toc-text">(3) 获取类中函数的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）获取类中构造函数的方法"><span class="toc-number">1.3.4.</span> <span class="toc-text">（4）获取类中构造函数的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Filed中的常用方法"><span class="toc-number">1.4.</span> <span class="toc-text">4.Filed中的常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-使用反射机制修改类中私有属性的值（String）"><span class="toc-number">1.5.</span> <span class="toc-text">5. 使用反射机制修改类中私有属性的值（String）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Method中的常用方法"><span class="toc-number">1.6.</span> <span class="toc-text">6.Method中的常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）获取方法的基本属性"><span class="toc-number">1.6.1.</span> <span class="toc-text">（1）获取方法的基本属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）如何操作方法"><span class="toc-number">1.6.2.</span> <span class="toc-text">（2）如何操作方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-如何操作构造方法（主要针对有参）"><span class="toc-number">1.7.</span> <span class="toc-text">7.如何操作构造方法（主要针对有参）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）获取构造方法的基本属性"><span class="toc-number">1.7.1.</span> <span class="toc-text">（1）获取构造方法的基本属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）如何操作构造方法"><span class="toc-number">1.7.2.</span> <span class="toc-text">（2）如何操作构造方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-反射的作用"><span class="toc-number">1.8.</span> <span class="toc-text">8.反射的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）什么是IOC和DI"><span class="toc-number">1.8.1.</span> <span class="toc-text">（1）什么是IOC和DI?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）反射的小案例"><span class="toc-number">1.8.2.</span> <span class="toc-text">（2）反射的小案例</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -385,10 +406,10 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
-		innerArchive: true,
+		innerArchive: false,
 		showTags: false
 	}
 </script>
@@ -405,11 +426,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      
-      
     
-      
-      
       
     
       
@@ -422,109 +439,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+        
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
   </div>
   <div class="tools-wrap">
     
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
-        <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
-        </div>
-        <div class="widget tagcloud search-tag">
-          <p class="search-tag-wording">tag:</p>
-          <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
-          </label>
-          <ul class="article-tag-list" q-show="showTags">
-            
-            <div class="clearfix"></div>
-          </ul>
-        </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            3、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
-          </li>
-        </ul>
-    	</section>
-    
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
