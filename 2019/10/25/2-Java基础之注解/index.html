@@ -6,16 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 齐博文的博客</title>
+  <title>2.Java基础之注解 | 齐博文的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="电子科大在读研究生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="齐博文的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="注解1 注解基础1.1 注解的写法@xxxx[(一些信息)] 1.2 注解的位置类的上面、属性上面、方法上面、构造方法上面、参数上面 1.3 注解的作用（1）用来从当注释的作用(仅仅是一个文字的说明)，如：@Deprecated （2）用来做代码的检测&#x2F;验证，如：@Override （3）可以携带一些信息&#x2F;内容，如xx.properties xx.xml的注解 1.4 Java中常用的一些注解@D">
+<meta name="keywords" content="Java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.Java基础之注解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="齐博文的博客">
-<meta property="og:description" content="电子科大在读研究生">
+<meta property="og:description" content="注解1 注解基础1.1 注解的写法@xxxx[(一些信息)] 1.2 注解的位置类的上面、属性上面、方法上面、构造方法上面、参数上面 1.3 注解的作用（1）用来从当注释的作用(仅仅是一个文字的说明)，如：@Deprecated （2）用来做代码的检测&#x2F;验证，如：@Override （3）可以携带一些信息&#x2F;内容，如xx.properties xx.xml的注解 1.4 Java中常用的一些注解@D">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151728633.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151734800.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151742688.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151807950.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151821144.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151827074.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151832856.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151838199.png">
+<meta property="og:updated_time" content="2019-10-25T07:25:08.692Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3&#x2F;D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151728633.png">
   
     <link rel="alternative" href="/atom.xml" title="齐博文的博客" type="application/atom+xml">
   
@@ -153,36 +164,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-2-Java基础之注解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      2.Java基础之注解
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
+
+        
+        <a href="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
   	<time datetime="2019-10-25T07:12:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/">2.Java基础之注解</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="1-注解基础"><a href="#1-注解基础" class="headerlink" title="1 注解基础"></a>1 注解基础</h2><h3 id="1-1-注解的写法"><a href="#1-1-注解的写法" class="headerlink" title="1.1 注解的写法"></a>1.1 注解的写法</h3><p>@xxxx[(一些信息)]</p>
+<h3 id="1-2-注解的位置"><a href="#1-2-注解的位置" class="headerlink" title="1.2 注解的位置"></a>1.2 注解的位置</h3><p>类的上面、属性上面、方法上面、构造方法上面、参数上面</p>
+<h3 id="1-3-注解的作用"><a href="#1-3-注解的作用" class="headerlink" title="1.3 注解的作用"></a>1.3 注解的作用</h3><p>（1）用来从当注释的作用(仅仅是一个文字的说明)，如：@Deprecated</p>
+<p>（2）用来做代码的检测/验证，如：@Override</p>
+<p>（3）可以携带一些信息/内容，如xx.properties xx.xml的注解</p>
+<h3 id="1-4-Java中常用的一些注解"><a href="#1-4-Java中常用的一些注解" class="headerlink" title="1.4 Java中常用的一些注解"></a>1.4 Java中常用的一些注解</h3><p>@Deprecated：用来说明方法是废弃的。</p>
+<p>@Override：用来做代码检测，检测此方法是否是一个重写。</p>
+<p>@SuppressWarnings(信息)：</p>
+<p>   unused：变量定义后未被使用。</p>
+<p>   serial：类实现了序列化接口 不添加序列化ID号。</p>
+<p>   rawtypes：集合没用定义泛型。</p>
+<p>   deprecation：表示方法以废弃不出现横线。</p>
+<p>   unchecked：出现了泛型问题 可以不检测</p>
+<p>   all：包含了以上所有。</p>
+<h3 id="1-5-注解中可以携带信息类型"><a href="#1-5-注解中可以携带信息类型" class="headerlink" title="1.5 注解中可以携带信息类型"></a>1.5 注解中可以携带信息类型</h3><p>（1）基本数据类型</p>
+<p>（2）String类型</p>
+<p>（3）枚举类型enum</p>
+<p>（4）注解信息</p>
+<p>（5）数组类型[] 数组内部需要是如上的四种类型</p>
+<h3 id="1-6-自定义注解类型"><a href="#1-6-自定义注解类型" class="headerlink" title="1.6 自定义注解类型"></a>1.6 自定义注解类型</h3><p>（1）通过@interface定义一个新的注解类型。</p>
+<p>（2）写法与接口非常相似(可以利用接口的特点来记忆注解)，可以描述public static final的属性，比较少见；可以描述public abstract的方法，方法要求必须有返回值，返回值只能是1.5中的那些。</p>
+<p>（3）我们自己定义的注解如果想要拿来使用，光定义还不够，还需要做很多细致的说明(需要利用java提供号的注解来说明)，也就是元注解来说明。</p>
+<p>（4）使用注解的时候需要我们传参数(但自定义注解方法中却没有参数)，这个参数其实是我们将参数通过这个注解方法搬给其他的地方使用。</p>
+<p>（5）我们自定义的注解当只有一个方法且方法名是value，在使用的时候就可以省略方法名</p>
+<h3 id="1-7-元注解"><a href="#1-7-元注解" class="headerlink" title="1.7 元注解"></a>1.7 元注解</h3><p>元注解也是注解，不是拿来用的而是拿来说明注解的。</p>
+<p><strong>@Target</strong> 描述当前的这个注解可以放置的位置。</p>
+<p><strong>@Retention</strong> 描述当前的这个注解存在什么作用域中的。</p>
+<p>   源代码-&gt;编译-&gt;字节码文件-&gt;加载-&gt;内存执行</p>
+<p>   <strong>SOURCE         CLASS          RUNTIME</strong></p>
+<p><strong>@Inherited</strong> 描述当前这个注解是否能被子类对象继承。</p>
+<p><strong>@Document</strong> 描述当前这个注解是否能被文档记录。</p>
+<h3 id="1-8-自定义注解使用"><a href="#1-8-自定义注解使用" class="headerlink" title="1.8 自定义注解使用"></a>1.8 自定义注解使用</h3><p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151728633.png" alt="image-20191025151728633"></p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151734800.png" alt="image-20191025151734800"></p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151742688.png" alt="image-20191025151742688"></p>
+<h3 id="1-9-注解的应用"><a href="#1-9-注解的应用" class="headerlink" title="1.9 注解的应用"></a>1.9 注解的应用</h3><p>(1)需要创建的类，注解在构造函数上面。</p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151807950.png" alt="image-20191025151807950"></p>
+<p>（2）创建自己的Spring，用注解的方式实现Spring中的控制反转。</p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151821144.png" alt="image-20191025151821144"></p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151827074.png" alt="image-20191025151827074"></p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151832856.png" alt="image-20191025151832856"></p>
+<p><img src="/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/D:%5CBlog%5Chexo%5Csource_posts%5C2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3%5Cimage-20191025151838199.png" alt="image-20191025151838199"></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,68 +265,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/25/2-Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%A8%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/23/1-Java/" class="archive-article-date">
-  	<time datetime="2019-10-23T11:05:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/23/1-Java/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1.Java基础之反射</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/1-Java/">1.Java基础之反射</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/1-Java基础之反射//" class="article-tag-list-link color2">1.Java基础之反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -278,8 +387,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
