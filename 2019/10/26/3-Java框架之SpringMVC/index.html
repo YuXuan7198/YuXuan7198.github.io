@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>3.Java框架之SpringMVC | 齐博文的博客</title>
+  <title>3-Java框架之SpringMVC | 齐博文的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="电子科大在读研究生">
-<meta name="keywords" content="Java框架">
+  <meta name="description" content="title: 3.Java框架之SpringMVC(一)date: 2019-10-26 09:31:22tags: Java框架 Java框架之SpringMVC(一)一、三层架构与MVC模型1.三层架构表现层  也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web 层， web 需要接收 http 请求，完成 http 响应。表现层包括展示层和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.Java框架之SpringMVC">
+<meta property="og:title" content="3-Java框架之SpringMVC">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC&#x2F;index.html">
 <meta property="og:site_name" content="齐博文的博客">
-<meta property="og:description" content="电子科大在读研究生">
+<meta property="og:description" content="title: 3.Java框架之SpringMVC(一)date: 2019-10-26 09:31:22tags: Java框架 Java框架之SpringMVC(一)一、三层架构与MVC模型1.三层架构表现层  也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web 层， web 需要接收 http 请求，完成 http 响应。表现层包括展示层和">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-26T01:31:54.623Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC&#x2F;image-20191028092547313.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC&#x2F;image-20191026095840233.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC&#x2F;springmvc%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%8E%9F%E7%90%86.jpg">
+<meta property="og:updated_time" content="2019-10-29T01:07:19.575Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC&#x2F;image-20191028092547313.png">
   
     <link rel="alternative" href="/atom.xml" title="齐博文的博客" type="application/atom+xml">
   
@@ -162,20 +165,95 @@
         
   
     <h1 class="article-title" itemprop="name">
-      3.Java框架之SpringMVC
+      3-Java框架之SpringMVC
     </h1>
   
 
         
         <a href="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/" class="archive-article-date">
-  	<time datetime="2019-10-26T01:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
+  	<time datetime="2019-10-26T01:31:22.090Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>title: 3.Java框架之SpringMVC(一)<br>date: 2019-10-26 09:31:22<br>tags: Java框架</p>
+<h1 id="Java框架之SpringMVC-一"><a href="#Java框架之SpringMVC-一" class="headerlink" title="Java框架之SpringMVC(一)"></a>Java框架之SpringMVC(一)</h1><h2 id="一、三层架构与MVC模型"><a href="#一、三层架构与MVC模型" class="headerlink" title="一、三层架构与MVC模型"></a>一、三层架构与MVC模型</h2><h3 id="1-三层架构"><a href="#1-三层架构" class="headerlink" title="1.三层架构"></a>1.三层架构</h3><h3 id="表现层"><a href="#表现层" class="headerlink" title="表现层"></a>表现层</h3><p>  也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web 层， web 需要接收 http 请求，完成 http 响应。表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）  </p>
+<h3 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h3><p>  也就是我们常说的 service 层。它负责业务逻辑处理，和我们开发项目的需求息息相关。 web 层依赖业务层，但是业务层不依赖 web 层。业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，事务应该放到业务层来控制）  </p>
+<h3 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h3><p>  也就是我们是常说的 dao 层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进<br>行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库<br>中。通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。  </p>
+<h3 id="2-MVC模型"><a href="#2-MVC模型" class="headerlink" title="2.MVC模型"></a>2.MVC模型</h3><h3 id="Model（模型）"><a href="#Model（模型）" class="headerlink" title="Model（模型）"></a>Model（模型）</h3><p>  通常指的就是我们的数据模型。作用一般情况下用于封装数据  。</p>
+<h3 id="View（视图）-："><a href="#View（视图）-：" class="headerlink" title="View（视图） ："></a>View（视图） ：</h3><p>  通常指的就是我们的 jsp 或者 html。作用一般就是展示数据的。通常视图是依据模型数据创建的。  </p>
+<h3 id="Controller（控制器）-："><a href="#Controller（控制器）-：" class="headerlink" title="Controller（控制器） ："></a>Controller（控制器） ：</h3><p>  是应用程序中处理用户交互的部分。 作用一般就是处理程序逻辑的。<br>        它相对于前两个不是很好理解，这里举个例子：<br>        我们要保存一个用户的信息，该用户信息中包含了姓名，性别，年龄等等。这时候表单输入要求年龄必须是 1~100 之间的整数。姓名和性别不能为空。并且把数据填充到模型之中。此时除了 js 的校验之外，服务器端也应该有数据准确性的校验，那么校验就是控制器的该做的。<br>        当校验失败后，由控制器负责把错误页面展示给使用者。<br>        如果校验成功，也是控制器负责把数据填充到模型，并且调用业务层实现完整的业务需求。  </p>
+<h2 id="二、SSM三层框架"><a href="#二、SSM三层框架" class="headerlink" title="二、SSM三层框架"></a>二、SSM三层框架</h2><p><img src="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/image-20191028092547313.png" alt="image-20191028092547313"></p>
+<h2 id="三、入门案例的流程"><a href="#三、入门案例的流程" class="headerlink" title="三、入门案例的流程"></a>三、入门案例的流程</h2><h3 id="1-需要配置的文件"><a href="#1-需要配置的文件" class="headerlink" title="1.需要配置的文件"></a>1.需要配置的文件</h3><p>（1）导入各种依赖包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这个和下面的属性有关--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>5.0.2.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）配置web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!--配置解决中文乱码的过滤器--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- 配置过滤器，解决中文乱码的问题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定字符集 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--前端控制器--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>(3)在resource文件夹下建立springmvc.xml文件并配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">                http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">                http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">                http://www.springframework.org/schema/mvc</span></span></span><br><span class="line"><span class="tag"><span class="string">                http://www.springframework.org/schema/mvc/spring-mvc.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">                http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">                http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment">&lt;!-- 配置spring创建容器时要扫描的包 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.yuxuan"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置视图解析器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"viewResolver"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/pages/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置spring开启注解mvc的支持</span></span><br><span class="line"><span class="comment">    &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-入门案例流程图"><a href="#2-入门案例流程图" class="headerlink" title="2.入门案例流程图"></a>2.入门案例流程图</h3><p><img src="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/image-20191026095840233.png" alt="image-20191026095840233"></p>
+<h2 id="四、SpringMVC各组件的作用"><a href="#四、SpringMVC各组件的作用" class="headerlink" title="四、SpringMVC各组件的作用"></a>四、SpringMVC各组件的作用</h2><p><img src="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/springmvc%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%8E%9F%E7%90%86.jpg" alt></p>
+<h3 id="DispatcherServlet：-前端控制器"><a href="#DispatcherServlet：-前端控制器" class="headerlink" title="DispatcherServlet：  前端控制器"></a>DispatcherServlet：  前端控制器</h3><p>  用户请求到达前端控制器，它就相当于 mvc 模式中的 c， dispatcherServlet 是整个流程控制的中心，由<br>它调用其它组件处理用户的请求， dispatcherServlet 的存在降低了组件之间的耦合性。  </p>
+<h3 id="HandlerMapping：处理器映射器"><a href="#HandlerMapping：处理器映射器" class="headerlink" title="HandlerMapping：处理器映射器"></a>HandlerMapping：处理器映射器</h3><p>  HandlerMapping 负责根据用户请求找到 Handler 即处理器， SpringMVC 提供了不同的映射器实现不同的<br>映射方式，例如：配置文件方式，实现接口方式，注解方式等。  </p>
+<h3 id="Handler：处理器"><a href="#Handler：处理器" class="headerlink" title="Handler：处理器"></a>Handler：处理器</h3><p>  它就是我们开发中要编写的具体业务控制器。由 DispatcherServlet 把用户请求转发到 Handler。由<br>Handler 对具体的用户请求进行处理。  </p>
+<h3 id="HandlAdapter：处理器适配器"><a href="#HandlAdapter：处理器适配器" class="headerlink" title="HandlAdapter：处理器适配器"></a>HandlAdapter：处理器适配器</h3><p>  通过 HandlerAdapter 对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理<br>器进行执行。  </p>
+<h3 id="View-Resolver：视图解析器"><a href="#View-Resolver：视图解析器" class="headerlink" title="View Resolver：视图解析器"></a>View Resolver：视图解析器</h3><p>  View Resolver 负责将处理结果生成 View 视图， View Resolver 首先根据逻辑视图名解析成物理视图名<br>即具体的页面地址，再生成 View 视图对象，最后对 View 进行渲染将处理结果通过页面展示给用户。  </p>
+<h3 id="View：视图"><a href="#View：视图" class="headerlink" title="View：视图"></a>View：视图</h3><p>  SpringMVC 框架提供了很多的 View 视图类型的支持，包括： jstlView、 freemarkerView、 pdfView等。我们最常用的视图就是 jsp。一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面  。</p>
+<h3 id="lt-mvc-annotation-driven-gt-说明"><a href="#lt-mvc-annotation-driven-gt-说明" class="headerlink" title="&lt;  mvc:annotation-driven&gt;说明"></a>&lt;  <a href="mvc:annotation-driven" target="_blank" rel="noopener">mvc:annotation-driven</a>&gt;说明</h3><p>  在 SpringMVC 的各个组件中，处理器映射器、处理器适配器、视图解析器称为 SpringMVC 的三大组件。<br>使 用 <a href="mvc:annotation-driven" target="_blank" rel="noopener">mvc:annotation-driven</a> 自 动 加 载 RequestMappingHandlerMapping （ 处 理 映 射 器 ） 。RequestMappingHandlerAdapter （ 处 理 适 配 器 ） ， 可 用 在 SpringMVC.xml 配 置 文 件 中 使 用<br>&lt;<a href="mvc:annotation-driven" target="_blank" rel="noopener">mvc:annotation-driven</a>&gt;替代注解处理器和适配器的配置。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置spring开启注解mvc的支持--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="URL-在WWW上，每一信息资源都有统一的且在网上唯一的地址，该地址就叫URL（Uniform-Resource-Locator-统一资源定位符），它是WWW的统一资源定位标志，就是指网络地址。"><a href="#URL-在WWW上，每一信息资源都有统一的且在网上唯一的地址，该地址就叫URL（Uniform-Resource-Locator-统一资源定位符），它是WWW的统一资源定位标志，就是指网络地址。" class="headerlink" title="URL:在WWW上，每一信息资源都有统一的且在网上唯一的地址，该地址就叫URL（Uniform Resource Locator,统一资源定位符），它是WWW的统一资源定位标志，就是指网络地址。"></a>URL:在WWW上，每一信息资源都有统一的且在网上唯一的地址，该地址就叫URL（Uniform Resource Locator,统一资源定位符），它是WWW的统一资源定位标志，就是指网络地址。</h4><h2 id="五、请求参数的绑定"><a href="#五、请求参数的绑定" class="headerlink" title="五、请求参数的绑定"></a>五、请求参数的绑定</h2><h3 id="1-支持的数据类型有三种："><a href="#1-支持的数据类型有三种：" class="headerlink" title="1.支持的数据类型有三种："></a>1.支持的数据类型有三种：</h3><h4 id="基本类型参数："><a href="#基本类型参数：" class="headerlink" title="基本类型参数："></a>基本类型参数：</h4><p>​    包括基本类型和String类型</p>
+<h4 id="POJO类型参数"><a href="#POJO类型参数" class="headerlink" title="POJO类型参数"></a>POJO类型参数</h4><p>​    包括实体类，以及关联的实体类</p>
+<h4 id="数组和集合类型参数-："><a href="#数组和集合类型参数-：" class="headerlink" title="数组和集合类型参数 ："></a>数组和集合类型参数 ：</h4><p>​    包括List结构和Map结构的集合（包括数组）</p>
+<h3 id="2-使用要求"><a href="#2-使用要求" class="headerlink" title="2.使用要求"></a>2.使用要求</h3><h4 id="基本类型或者-String-类型："><a href="#基本类型或者-String-类型：" class="headerlink" title="基本类型或者 String 类型："></a>基本类型或者 String 类型：</h4><p>​    要求我们的参数名称必须和控制器中方法的形参名称保持一致。 (严格区分大小写)  </p>
+<h4 id="POJO-类型，或者它的关联对象："><a href="#POJO-类型，或者它的关联对象：" class="headerlink" title="POJO 类型，或者它的关联对象："></a>POJO 类型，或者它的关联对象：</h4><p>​    要求表单中参数名称和 POJO 类的属性名称保持一致。并且控制器方法的参数类型是 POJO 类型。  </p>
+<h4 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h4><h4 id="第一种："><a href="#第一种：" class="headerlink" title="第一种："></a>第一种：</h4><pre><code>要求集合类型的请求参数必须在 POJO 中。在表单中请求参数名称要和 POJO 中集合属性名称相同。
+       给 List 集合中的元素赋值， 使用下标。
+       给 Map 集合中的元素赋值， 使用键值对。</code></pre><h4 id="第二种-："><a href="#第二种-：" class="headerlink" title="第二种  ："></a>第二种  ：</h4><pre><code>接收的请求参数是 json 格式数据。需要借助一个注解实现。  </code></pre><p>​        </p>
+<h2 id="六、常用的注解"><a href="#六、常用的注解" class="headerlink" title="六、常用的注解"></a>六、常用的注解</h2><h3 id="RequestMapping注解"><a href="#RequestMapping注解" class="headerlink" title="RequestMapping注解"></a>RequestMapping注解</h3><ol>
+<li><p>RequestMapping注解的作用是建立请求URL和处理方法之间的对应关系  </p>
+</li>
+<li><p>RequestMapping注解可以作用在方法和类上</p>
+<p>（1）作用在类上：第一级的访问目录  </p>
+<p>（2）作用在方法上：第二级的访问目录  </p>
+<p>（3）细节：路径可以不编写 / 表示应用的根目录开始  </p>
+<p>（4）细节：${ pageContext.request.contextPath }也可以省略不写，但是路径上不能写 /  </p>
+</li>
+<li><p>RequestMapping的属性  </p>
+<p>（1）  path 指定请求路径的url  </p>
+<p>（2）  value value属性和path属性是一样的  </p>
+<p>（3）  mthod 指定该方法的请求方式  </p>
+<p>（4）  params 指定限制请求参数的条件  </p>
+<p>（5）  headers 发送的请求中必须包含的请求头  </p>
+</li>
+</ol>
+<h3 id="RequestParam注解"><a href="#RequestParam注解" class="headerlink" title="RequestParam注解"></a>RequestParam注解</h3><ol>
+<li><p>作用：把请求中的指定名称的参数传递给控制器中的形参赋值</p>
+</li>
+<li><p>属性</p>
+<p>value：请求参数中的名称</p>
+<p>required：请求参数中是否必须提供此参数，默认值是true，必须提供  </p>
+</li>
+</ol>
+<h3 id="RequestBody注解"><a href="#RequestBody注解" class="headerlink" title="RequestBody注解"></a>RequestBody注解</h3><ol>
+<li><p>作用：用于获取请求体的内容（注意：get方法不可以）</p>
+</li>
+<li><p>属性</p>
+<p>  required：是否必须有请求体，默认值是true  </p>
+</li>
+</ol>
+<h3 id><a href="#" class="headerlink" title></a></h3><h3 id="PathVariable注解"><a href="#PathVariable注解" class="headerlink" title="PathVariable注解"></a>PathVariable注解</h3><p>1.作用：拥有绑定url中的占位符的。例如：url中有/delete/{id}，{id}就是占位符</p>
+<p>2.属性</p>
+<p>​    value：指定url中的占位符名称</p>
+<p>3.Restful风格的URL</p>
+<p>​    请求路径一样，可以根据不同的请求方式去执行后台的不同方法</p>
+<p>​    restful风格的URL优点</p>
+<p>​         结构清晰<br>​                符合标准<br>​                易于理解<br>​                扩展方便  </p>
+
       
 
       
@@ -204,17 +282,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -403,15 +470,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java框架</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
             
             <div class="clearfix"></div>
