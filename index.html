@@ -162,21 +162,20 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/">3-Java框架之SpringMVC</a>
+      <a class="article-title" href="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/">3.Java框架之SpringMVC(一)</a>
     </h1>
   
 
         
         <a href="/2019/10/26/3-Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringMVC/" class="archive-article-date">
-  	<time datetime="2019-10-26T01:31:22.090Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
+  	<time datetime="2019-10-26T01:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 3.Java框架之SpringMVC(一)<br>date: 2019-10-26 09:31:22<br>tags: Java框架</p>
-<h1 id="Java框架之SpringMVC-一"><a href="#Java框架之SpringMVC-一" class="headerlink" title="Java框架之SpringMVC(一)"></a>Java框架之SpringMVC(一)</h1><h2 id="一、三层架构与MVC模型"><a href="#一、三层架构与MVC模型" class="headerlink" title="一、三层架构与MVC模型"></a>一、三层架构与MVC模型</h2><h3 id="1-三层架构"><a href="#1-三层架构" class="headerlink" title="1.三层架构"></a>1.三层架构</h3><h3 id="表现层"><a href="#表现层" class="headerlink" title="表现层"></a>表现层</h3><p>  也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web 层， web 需要接收 http 请求，完成 http 响应。表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）  </p>
+        <h1 id="Java框架之SpringMVC-一"><a href="#Java框架之SpringMVC-一" class="headerlink" title="Java框架之SpringMVC(一)"></a>Java框架之SpringMVC(一)</h1><h2 id="一、三层架构与MVC模型"><a href="#一、三层架构与MVC模型" class="headerlink" title="一、三层架构与MVC模型"></a>一、三层架构与MVC模型</h2><h3 id="1-三层架构"><a href="#1-三层架构" class="headerlink" title="1.三层架构"></a>1.三层架构</h3><h3 id="表现层"><a href="#表现层" class="headerlink" title="表现层"></a>表现层</h3><p>  也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web 层， web 需要接收 http 请求，完成 http 响应。表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）  </p>
 <h3 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h3><p>  也就是我们常说的 service 层。它负责业务逻辑处理，和我们开发项目的需求息息相关。 web 层依赖业务层，但是业务层不依赖 web 层。业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，事务应该放到业务层来控制）  </p>
 <h3 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h3><p>  也就是我们是常说的 dao 层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进<br>行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库<br>中。通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。  </p>
 <h3 id="2-MVC模型"><a href="#2-MVC模型" class="headerlink" title="2.MVC模型"></a>2.MVC模型</h3><h3 id="Model（模型）"><a href="#Model（模型）" class="headerlink" title="Model（模型）"></a>Model（模型）</h3><p>  通常指的就是我们的数据模型。作用一般情况下用于封装数据  。</p>
@@ -211,45 +210,32 @@
 <h4 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h4><h4 id="第一种："><a href="#第一种：" class="headerlink" title="第一种："></a>第一种：</h4><pre><code>要求集合类型的请求参数必须在 POJO 中。在表单中请求参数名称要和 POJO 中集合属性名称相同。
        给 List 集合中的元素赋值， 使用下标。
        给 Map 集合中的元素赋值， 使用键值对。</code></pre><h4 id="第二种-："><a href="#第二种-：" class="headerlink" title="第二种  ："></a>第二种  ：</h4><pre><code>接收的请求参数是 json 格式数据。需要借助一个注解实现。  </code></pre><p>​        </p>
-<h2 id="六、常用的注解"><a href="#六、常用的注解" class="headerlink" title="六、常用的注解"></a>六、常用的注解</h2><h3 id="RequestMapping注解"><a href="#RequestMapping注解" class="headerlink" title="RequestMapping注解"></a>RequestMapping注解</h3><ol>
-<li><p>RequestMapping注解的作用是建立请求URL和处理方法之间的对应关系  </p>
-</li>
-<li><p>RequestMapping注解可以作用在方法和类上</p>
-<p>（1）作用在类上：第一级的访问目录  </p>
-<p>（2）作用在方法上：第二级的访问目录  </p>
-<p>（3）细节：路径可以不编写 / 表示应用的根目录开始  </p>
-<p>（4）细节：${ pageContext.request.contextPath }也可以省略不写，但是路径上不能写 /  </p>
-</li>
-<li><p>RequestMapping的属性  </p>
-<p>（1）  path 指定请求路径的url  </p>
-<p>（2）  value value属性和path属性是一样的  </p>
-<p>（3）  mthod 指定该方法的请求方式  </p>
-<p>（4）  params 指定限制请求参数的条件  </p>
-<p>（5）  headers 发送的请求中必须包含的请求头  </p>
-</li>
-</ol>
-<h3 id="RequestParam注解"><a href="#RequestParam注解" class="headerlink" title="RequestParam注解"></a>RequestParam注解</h3><ol>
-<li><p>作用：把请求中的指定名称的参数传递给控制器中的形参赋值</p>
-</li>
-<li><p>属性</p>
-<p>value：请求参数中的名称</p>
-<p>required：请求参数中是否必须提供此参数，默认值是true，必须提供  </p>
-</li>
-</ol>
-<h3 id="RequestBody注解"><a href="#RequestBody注解" class="headerlink" title="RequestBody注解"></a>RequestBody注解</h3><ol>
-<li><p>作用：用于获取请求体的内容（注意：get方法不可以）</p>
-</li>
-<li><p>属性</p>
-<p>  required：是否必须有请求体，默认值是true  </p>
-</li>
-</ol>
+<h2 id="六、常用的注解"><a href="#六、常用的注解" class="headerlink" title="六、常用的注解"></a>六、常用的注解</h2><h3 id="RequestMapping注解"><a href="#RequestMapping注解" class="headerlink" title="RequestMapping注解"></a>RequestMapping注解</h3><p>1.RequestMapping注解的作用是建立请求URL和处理方法之间的对应关系  </p>
+<p>2.RequestMapping注解可以作用在方法和类上</p>
+<p>​    （1）作用在类上：第一级的访问目录  </p>
+<p>​    （2）作用在方法上：第二级的访问目录  </p>
+<p>​    （3）细节：路径可以不编写 / 表示应用的根目录开始  </p>
+<p>​    （4）细节：${ pageContext.request.contextPath }也可以省略不写，但是路径上不能写 /  </p>
+<p>3.RequestMapping的属性  </p>
+<p>​    （1）  path 指定请求路径的url  </p>
+<p>​    （2）  value value属性和path属性是一样的  </p>
+<p>​    （3）  mthod 指定该方法的请求方式  </p>
+<p>​    （4）  params 指定限制请求参数的条件  </p>
+<p>​    （5）  headers 发送的请求中必须包含的请求头  </p>
+<h3 id="RequestParam注解"><a href="#RequestParam注解" class="headerlink" title="RequestParam注解"></a>RequestParam注解</h3><p>1.作用：把请求中的指定名称的参数传递给控制器中的形参赋值</p>
+<p>2.属性</p>
+<p>​    value：请求参数中的名称</p>
+<p>​    required：请求参数中是否必须提供此参数，默认值是true，必须提供  </p>
+<h3 id="RequestBody注解"><a href="#RequestBody注解" class="headerlink" title="RequestBody注解"></a>RequestBody注解</h3><p>1.作用：用于获取请求体的内容（注意：get方法不可以）</p>
+<p>2.属性</p>
+<p>​    required：是否必须有请求体，默认值是true  </p>
 <h3 id><a href="#" class="headerlink" title></a></h3><h3 id="PathVariable注解"><a href="#PathVariable注解" class="headerlink" title="PathVariable注解"></a>PathVariable注解</h3><p>1.作用：拥有绑定url中的占位符的。例如：url中有/delete/{id}，{id}就是占位符</p>
 <p>2.属性</p>
-<p>​    value：指定url中的占位符名称</p>
+<p>​        value：指定url中的占位符名称</p>
 <p>3.Restful风格的URL</p>
-<p>​    请求路径一样，可以根据不同的请求方式去执行后台的不同方法</p>
-<p>​    restful风格的URL优点</p>
-<p>​         结构清晰<br>​                符合标准<br>​                易于理解<br>​                扩展方便  </p>
+<p>​        请求路径一样，可以根据不同的请求方式去执行后台的不同方法</p>
+<p>​        restful风格的URL优点</p>
+<p>​             结构清晰<br>​                    符合标准<br>​                    易于理解<br>​                    扩展方便  </p>
 
       
 
@@ -258,6 +244,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -745,6 +742,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java框架</a>
               </li>
             
             <div class="clearfix"></div>
