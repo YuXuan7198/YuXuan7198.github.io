@@ -832,7 +832,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、传统的jdbc方法开发存在的问题"><a href="#一、传统的jdbc方法开发存在的问题" class="headerlink" title="一、传统的jdbc方法开发存在的问题"></a>一、传统的jdbc方法开发存在的问题</h2><p>1、 数据库链接创建、释放频繁造成系统资源浪费从而影响系统性能，如果使用数据库链接池可解决此问题。<br>       2、 Sql 语句在代码中硬编码，造成代码不易维护，实际应用 sql 变化的可能较大， sql 变动需要改变 java<br>代码。<br>       3、 使用 preparedStatement 向占有位符号传参数存在硬编码，因为 sql 语句的 where 条件不一定，可能<br>多也可能少，修改 sql 还要修改代码，系统不易维护。<br>       4、 对结果集解析存在硬编码（查询列名）， sql 变化导致解析代码变化，系统不易维护，如果能将数据库记<br>录封装成 pojo 对象解析比较方便。  </p>
+        <p>[TOC]</p>
+<h2 id="一、传统的jdbc方法开发存在的问题"><a href="#一、传统的jdbc方法开发存在的问题" class="headerlink" title="一、传统的jdbc方法开发存在的问题"></a>一、传统的jdbc方法开发存在的问题</h2><p>1、 数据库链接创建、释放频繁造成系统资源浪费从而影响系统性能，如果使用数据库链接池可解决此问题。<br>       2、 Sql 语句在代码中硬编码，造成代码不易维护，实际应用 sql 变化的可能较大， sql 变动需要改变 java<br>代码。<br>       3、 使用 preparedStatement 向占有位符号传参数存在硬编码，因为 sql 语句的 where 条件不一定，可能<br>多也可能少，修改 sql 还要修改代码，系统不易维护。<br>       4、 对结果集解析存在硬编码（查询列名）， sql 变化导致解析代码变化，系统不易维护，如果能将数据库记<br>录封装成 pojo 对象解析比较方便。  </p>
 <h2 id="二、Mybatis的概述"><a href="#二、Mybatis的概述" class="headerlink" title="二、Mybatis的概述"></a>二、Mybatis的概述</h2><p>mybatis是一个持久层框架，用java编写的。它封装了jdbc操作的很多细节，使开发者只需要关注sql语句本身，而无需关注注册驱动，创建连接等繁杂过程。它使用了ORM思想实现了结果集的封装。</p>
 <p><strong>ORM：</strong><br>       Object Relational Mappging 对象关系映射<br>       简单的说：就是把数据库表和实体类及实体类的属性对应起来，让我们可以操作实体类就实现操作数据库表。</p>
 <p>我们需要做到实体类中的属性和数据库表的字段名称保持一致。</p>
